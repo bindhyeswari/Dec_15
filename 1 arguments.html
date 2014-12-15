@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        function add(x, y) {
+
+            var sum = 0;
+
+            for (var i = 0, len = arguments.length; i < len; i++) {
+                // check if the input is an array
+                if (Array.isArray(arguments[i])) {
+                    /*for (var j = 0, len_arr = arguments[i].length; j < len_arr; j++) {
+                        sum += arguments[i][j];
+                    }*/
+                    sum += arguments[i].reduce(function (a, b) {
+                        return a + b;
+                    });
+                } else {
+                    if (typeof arguments[i] === 'number' && !isNaN(arguments[i])) {
+                        sum += arguments[i];
+                    }
+                }
+
+                // check if the input is a number
+
+            }
+            
+            return sum;
+        }
+
+        console.log(add(1, 2, 3));
+        console.log(add(1, 2, 3, 4));
+        console.log(add(1, 2, 3, 4, [5, 6, 7]));
+        
+        // Write a general purpose add function which can take n number of number arguments, including arrays
+        // and returns the sum of that
+        
+    </script>
+</head>
+<body>
+
+</body>
+</html>

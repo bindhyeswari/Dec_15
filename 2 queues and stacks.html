@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        // constructor for a queue which supports the methods - enqueue and dequeue
+        // shift and push
+
+        function Queue () {
+
+        }
+
+        Queue.prototype.arr = [];
+
+        Queue.prototype.enqueue = function (elem) {
+            this.arr.push(elem);
+        };
+
+        Queue.prototype.dequeue = function () {
+            return this.arr.shift();
+        };
+
+        var queue = new Queue();
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.enqueue(3);
+
+        queue.dequeue();
+        console.log(queue);
+
+        // constructor for a stack which supports the methods - push and pop
+        // push and pop
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
