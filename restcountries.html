@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="bower_components/lato/css/lato.css"/>
+    <style>
+        body {
+            font: 300 1em 'Lato';
+        }
+    </style>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script>
+        $(function () {
+            $.getJSON('http://restcountries.eu/rest/v1/all', function (data) {
+                var countries = data.filter(function (country) {
+                    return country.population < 3000000;
+                });
+
+                // print out the total world population - reduce function
+                var total = data.reduce(function (prev, curr) {
+                    return prev + curr.population;
+                }, 0);
+
+                $('<h1> The total world population is ' + total + '</h1>').appendTo(document.body);
+
+                // print out all the countries which have a population less than 3,000,000
+                $('<div>')
+                        .html('Countries which have a population less than 3,000,000: ' + countries.length)
+                        .appendTo(document.body);
+                countries.forEach(function (country) {
+                    $('<div>').html(country.name + ':' + country.population).appendTo(document.body);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

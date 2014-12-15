@@ -9,6 +9,11 @@
 
             var sum = 0;
 
+            // arguments - reduce
+
+            console.log(Array.isArray(arguments));
+            arguments.reduce(function () {});
+
             for (var i = 0, len = arguments.length; i < len; i++) {
                 // check if the input is an array
                 if (Array.isArray(arguments[i])) {

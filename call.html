@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        var a = {
+            val: 4,
+            square: function (fn) {
+                return fn() + this.val * this.val;
+            }
+        };
+
+        console.log(a.square(function () {
+            return 'The square is: ';
+        }));
+
+        var b = {
+            val: 10
+        };
+
+        console.log(a.square.call(b, function () {
+            return 'The square (this is on call) is: '
+        }));
+
+        console.log(a.square.apply(b,  [function () {
+            return 'The square (this is on call) is: '
+        } ]));
+
+        // obj.method.call(context, param1, param2 ... )
+        // obj.method.apply(context, [ param1, param2 ... ] )
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
